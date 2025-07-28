@@ -44,12 +44,21 @@ VALIDATE $? "starting mysql service"
 mysql -h mysql.srikanthannam.space -u root -pExpenseApp@1 -e 'show databases;' &>>$LOG_FILE_NAME
 
 
+# if [ $? -ne 0 ]
+#   then 
+#       echo "MYSQL root password not set" &>>$LOG_FILE_NAME
+#       mysql_secure_installation --set-root-pass ExpenseApp@1
+#       VALIDATE $? "Setting Root Password"
+#   else
+#       echo -e "MySQL Root password already setup ... $Y SKIPPING $N"
+# fi
+
 if [ $? -ne 0 ]
-  then 
-      echo "MYSQL root password not set" &>>$LOG_FILE_NAME
-      mysql_secure_installation --set-root-pass ExpenseApp@1
-      VALIDATE $? "Setting Root Password"
-  else
-      echo -e "MySQL Root password already setup ... $Y SKIPPING $N"
+then
+    echo "MySQL Root password not setup" &>>$LOG_FILE_NAME
+    mysql_secure_installation --set-root-pass ExpenseApp@1
+    VALIDATE $? "Setting Root Password"
+else
+    echo -e "MySQL Root password already setup ... $Y SKIPPING $N"
 fi
 

@@ -39,7 +39,7 @@ if [ $? -ne 0]
   dnf install mysql-server -y &>>$LOG_FILE_NAME
     VALIDATE $? "Installing mysql server"
 else
-    echo -e "mysql-server is already $Y installed $N"
+    echo -e " mysql-server is already $Y installed $N"
 fi
 
 systemctl enable mysqld &>>$LOG_FILE_NAME

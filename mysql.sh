@@ -1,10 +1,11 @@
 #!/bin/bash
+
 USERID=$(id -u)
 
-R="e\[31m"
-G="e\[32m"
-Y="e\[33m"
-N="e\[0m"
+R= "e\[31m"
+G= "e\[32m"
+Y= "e\[33m"
+N= "e\[0m"
 
 LOG_FOLDER="/var/log/expense-log"
 LOG_FILE=$(echo $0 | cut -d "." -f1)
@@ -38,8 +39,8 @@ if [ $? -ne 0 ]
  then
   dnf install mysql-server -y &>>$LOG_FILE_NAME
     VALIDATE $? "Installing mysql server"
-else
-    echo -e " mysql-server is already $G INSTALLED $N "
+ else
+    echo -e " mysql-server is already $N INSTALLED $N "
 fi
 
 systemctl enable mysqld &>>$LOG_FILE_NAME

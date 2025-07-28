@@ -65,7 +65,7 @@ cp /home/ec2-user/expense-shell-script/backend.service /etc/systemd/system/backe
 dnf install mysql -y &>>$LOG_FILE_NAME
 VALIDATE $? "Installing mysql client"
 
-mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pExpenseApp@1 < /app/schema/backend.sql
+mysql -h mysql.srikanthannam.space -uroot -pExpenseApp@1 < /app/schema/backend.sql
 VALIDATE $? "setting root password"
 
 systemctl daemon-reload &>>$LOG_FILE_NAME

@@ -24,7 +24,7 @@ VALIDATE ()
 }
 
 
-if [USERID -ne 0 ]
+if [$USERID -ne 0 ]
  then 
  echo -e "$Y you must have sudo privileges $N"
  exit 1

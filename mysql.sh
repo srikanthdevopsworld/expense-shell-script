@@ -26,7 +26,7 @@ VALIDATE ()
 
 if [ $USERID -ne 0 ]
  then 
- echo -e "  Y you must have sudo privileges $N "
+ echo -e " $Y you must have sudo privileges $N "
  exit 1
 fi
 

@@ -34,7 +34,7 @@ echo "script started executing at $TIMESTAMP" &>>$LOG_FILE_NAME
 
 dnf list installed mysql-server &>>$LOG_FILE_NAME
 
-if [ $? -ne 0]
+if [ $? -ne 0 ]
  then
   dnf install mysql-server -y &>>$LOG_FILE_NAME
     VALIDATE $? "Installing mysql server"

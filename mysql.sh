@@ -52,3 +52,4 @@ if [ $? -ne 0]
       else
       echo -e "MySQL Root password already setup ... $Y SKIPPING $N"
 fi
+
